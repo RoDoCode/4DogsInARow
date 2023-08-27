@@ -176,7 +176,7 @@ The site has been tested via dev tools on the full range of screens available th
 Test users have been used and observed navigating the site unaided, and asked to find their way to specific pages without prior knowledge of how to get there. All test users successfully navigated to their targets after less than a minute and in fewer than 4 clicks.
 
 ### Bugs list:
-- 
+- After incorporating the form values as active elements in the JS code the win condition for playrr two became 5 aligned matching divs in stead of 4. This didnt effect player one. Player two also became the first to lay a tile. 
 
 ### Unfixed Bugs
 
