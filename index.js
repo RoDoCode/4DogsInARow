@@ -1,13 +1,15 @@
+console.log("loaded");
+
 var playerRed = "R";
 var playerYellow = "Y";
 var currPlayer = playerRed;
 
 var gameOver = false;
 var board;
-var currColumns;
 
 var rows = 6;
 var columns = 7;
+var currColumns = [];
 
 window.onload = function() {
     setGame();
@@ -18,8 +20,9 @@ function setGame() {
     currColumns = [5, 5, 5, 5, 5, 5, 5];
 
     for (let r = 0; r < rows; r++) {
-        for (let c = 0; c< columns; c++) {
-            rows.push(' ');
+        let row = [];
+        for (let c = 0; c < columns; c++) {
+            row.push(' ');
 
             let tile = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
@@ -62,7 +65,7 @@ function setPiece() {
     checkWinner();
 }
 
-fucntion checkWinner() {
+function checkWinner() {
     // horizontal win check
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c< columns - 3; c++) {
