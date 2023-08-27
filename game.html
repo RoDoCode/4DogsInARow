@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connect 4 - Canine Edition</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Connect 4 - Canine Edition</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <script src="../index.js"; charset="utf-8"></script>
-  </head>
-  
-  <header>
-        <div>
-            <a href="index.html">
-                <img class="logo" src="assets/images/logo.png" alt="Connect 4 - Canine Edition Logo">
-            </a>
-        </div>
-        <div>
-            <h1>Connect 4 - Canine Edition</h1>
-        </div>
-        <div>
-            <button>
-                <a href="feedback.html" class="feedback">
-                    Feedback
-                </a>
-            </button>
-        </div>
-  </header>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <script src="../index.js" ; charset="utf-8"></script>
+    </head>
 
-  <body>
-    <h2 id="winner"></h2>
-    <div id="board"></div>
-  </body>
+    <header>
+        <div>
+        <a href="index.html">
+            <img
+            class="logo"
+            src=""
+            alt="Connect 4 - Canine Edition Logo"
+            />
+        </a>
+        </div>
+        <div>
+        <h1>Connect 4 - Canine Edition</h1>
+        </div>
+        <div>
+        <button>
+            <a href="feedback.html" class="feedback"> Feedback </a>
+        </button>
+        </div>
+    </header>
+
+    <body id="mainBody">
+        <form id="nameForm">
+            <label for="player1Name">Player 1, what is your name?</label>
+            <br/>
+            <br/>
+            <input type="text" id="player1Name" name="player1Name" placeholder="Player 1 type here"/>
+            <br/>
+            <br/>
+            <br/>
+            <label for="player2Name">And you Player 2, what is your name?</label>
+            <br/>
+            <br/>
+            <input type="text" id="player2Name" name="player2Name" placeholder="Player 2 type here"/>
+            <br/>
+            <br/>
+            <button onclick="startGame()"> Or Try this button </button>
+        </form>
+    </body>
 </html>

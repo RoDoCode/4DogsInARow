@@ -1,4 +1,11 @@
-console.log("loaded");
+console.log("javascript loaded successfully");
+
+// taking player names from form and starting the game
+
+
+
+// BEGINNING OF GAME MECHANICS
+
 
 var playerRed = "R";
 var playerYellow = "Y";
@@ -11,11 +18,22 @@ var rows = 6;
 var columns = 7;
 var currColumns = [];
 
-window.onload = function() {
-    setGame();
-}
+function startGame() {
 
-function setGame() {
+    console.log("Game Started");
+    let removeElement = document.getElementsByTagName("form");
+    console.log(removeElement);
+    removeElement[0].remove();
+
+    let body = document.getElementById("mainBody");
+    let newSubHeading = document.createElement("h2");
+    newSubHeading.id = "winner";
+    body.appendChild(newSubHeading);
+
+    let newDiv = document.createElement("div");
+    newDiv.id = "board";
+    body.appendChild(newDiv);
+
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
 
@@ -124,3 +142,4 @@ function setWinner(r, c) {
     gameOver = true;
 }
 
+// end of game mechanics
