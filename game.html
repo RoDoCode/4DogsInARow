@@ -31,7 +31,7 @@
     </header>
 
     <body id="mainBody">
-        <form id="nameForm">
+        <form id="nameForm" method="POST">
             <label for="player1Name">Player 1, what is your name?</label>
             <br/>
             <br/>
@@ -45,7 +45,7 @@
             <input type="text" id="player2Name" name="player2Name" placeholder="Player 2 type here"/>
             <br/>
             <br/>
-            <button onclick="startGame()"> Or Try this button </button>
+            <button type="submit" form="nameForm" onclick="submitAndStart()"> Let's Play! </button>
         </form>
     </body>
 </html>

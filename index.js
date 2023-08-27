@@ -1,15 +1,10 @@
 console.log("javascript loaded successfully");
 
-// taking player names from form and starting the game
+// GLOBAL VARIABLES used in the game mechanics
 
-
-
-// BEGINNING OF GAME MECHANICS
-
-
-var playerRed = "R";
-var playerYellow = "Y";
-var currPlayer = playerRed;
+var playerOne = "R";
+var playerTwo = "Y";
+var currPlayer = playerOne;
 
 var gameOver = false;
 var board;
@@ -17,6 +12,27 @@ var board;
 var rows = 6;
 var columns = 7;
 var currColumns = [];
+
+// This gets the form values and attaches them to Player Name variables and then clears the page and sets up the board
+function submitAndStart () {
+    handleSubmit(event);
+    startGame();
+}
+
+function handleSubmit(event) {
+    // Prevent the default submit action
+    event.preventDefault();
+
+    // Get the two input elements
+    playerOne = document.getElementById('player1Name');
+    playerTwo = document.getElementById('player2Name');
+
+    // Log their values to the console for checking
+    console.log('Player One:', playerOne.value);
+    console.log('Player Two:', playerTwo.value);
+}
+
+// Constructs the board
 
 function startGame() {
 
@@ -52,6 +68,8 @@ function startGame() {
     }
 }
 
+// BEGINNING OF GAME MECHANICS
+
 function setPiece() {
     if (gameOver) {
         return;
@@ -68,13 +86,13 @@ function setPiece() {
 
     board[r][c] = currPlayer;
     let tile = document.getElementById(r.toString() + "-" + c.toString());
-    if (currPlayer == playerRed) {
+    if (currPlayer == playerOne) {
         tile.classList.add("red-piece");
-        currPlayer = playerYellow;
+        currPlayer = playerTwo;
     }
     else {
         tile.classList.add("yellow-piece");
-        currPlayer = playerRed;
+        currPlayer = playerOne;
     }
 
     r -= 1; //updating row height for a column
@@ -107,7 +125,7 @@ function checkWinner() {
         }
     }
 
-    //anti diagonally
+    //anti diagonal win check
     for (let r = 0; r < rows-3; r++){
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
@@ -118,7 +136,7 @@ function checkWinner() {
             }
         }
     }
-    // diagonally
+    // diagonal win check
     for (let r = 3; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] !=' ') {
@@ -133,10 +151,10 @@ function checkWinner() {
 
 function setWinner(r, c) {
     let winner = document.getElementById("winner");
-    if (board[r][c] == playerRed) {
-        winner.innerText = "Red Wins";
+    if (board[r][c] == playerOne) {
+        winner.innerText = `${playerOne.value} & Kipper Win!`;
     } else {
-        winner.innerText = "Yellow Wins";
+        winner.innerText = `${playerTwo.value} & Porgie Win!`;
     }
 
     gameOver = true;
