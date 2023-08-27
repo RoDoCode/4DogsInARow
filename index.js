@@ -1,23 +1,13 @@
 console.log("javascript loaded successfully");
 
-// GLOBAL VARIABLES used in the game mechanics
-
-var playerOne = "R";
-var playerTwo = "Y";
-var currPlayer = playerTwo;
-
-var gameOver = false;
-var board;
-
-var rows = 6;
-var columns = 7;
-var currColumns = [];
-
 // This gets the form values and attaches them to Player Name variables and then clears the page and sets up the board
 function submitAndStart () {
     handleSubmit(event);
     startGame();
 }
+
+let playerOne;
+let playerTwo;
 
 function handleSubmit(event) {
     // Prevent the default submit action
@@ -33,6 +23,19 @@ function handleSubmit(event) {
 }
 
 // Constructs the board
+
+// GLOBAL VARIABLES used in the game mechanics
+
+var playerRed = "R";
+var playerYellow = "Y";
+var currPlayer = playerRed;
+
+var gameOver = false;
+var board;
+
+var rows = 6;
+var columns = 7;
+var currColumns = [];
 
 function startGame() {
 
@@ -66,6 +69,7 @@ function startGame() {
         }
         board.push(row);
     }
+    winner.innerText = `${playerOne.value} it's your turn`;
 }
 
 // BEGINNING OF GAME MECHANICS
@@ -89,13 +93,15 @@ function setPiece() {
 
     board[r][c] = currPlayer; //update JS board
     let tile = document.getElementById(r.toString() + "-" + c.toString());
-    if (currPlayer == playerOne) {
+    if (currPlayer == playerRed) {
         tile.classList.add("red-piece");
-        currPlayer = playerTwo;
+        currPlayer = playerYellow;
+        winner.innerText = `${playerTwo.value} it's your turn`;
     }
     else {
         tile.classList.add("yellow-piece");
-        currPlayer = playerOne;
+        currPlayer = playerRed;
+        winner.innerText = `${playerOne.value} it's your turn`;
     }
 
     r -= 1; //update the row height for that column
@@ -156,7 +162,7 @@ function checkWinner() {
 
 function setWinner(r, c) {
     let winner = document.getElementById("winner");
-    if (board[r][c] == playerOne) {
+    if (board[r][c] == playerRed) {
         winner.innerText = `${playerOne.value} & Kipper Win!`;
     } else {
         winner.innerText = `${playerTwo.value} & Porgie Win!`;
