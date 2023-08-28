@@ -175,7 +175,7 @@ body {
     margin: 5px;
 
     /* Circle */
-    /* background-color: white; */
+    background-color: white;
     border-radius: 50%;
     border: 5px solid rgb(56, 40, 4);
 }

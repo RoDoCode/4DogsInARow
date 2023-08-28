@@ -176,7 +176,8 @@ The site has been tested via dev tools on the full range of screens available th
 Test users have been used and observed navigating the site unaided, and asked to find their way to specific pages without prior knowledge of how to get there. All test users successfully navigated to their targets after less than a minute and in fewer than 4 clicks.
 
 ### Bugs list:
-- After incorporating the form values as active elements in the JS code the win condition for playrr two became 5 aligned matching divs in stead of 4. This didnt effect player one. Player two also became the first to lay a tile. 
+- After incorporating the form values as active elements in the JS code the win condition for playrr two became 5 aligned matching divs in stead of 4. The game is connect 4, not connect 5, so this simply would do. This didnt effect player one. Player two also became the first to lay a tile unexpectedly. The bug was fixed by reverting to standard RED/YELLOW names to represent player one and two in code and passing their names value from the form separately into another variable which is used for in-game text.
+- hyperlinks in the buttons were only working when text was clicked, not the button itself. The links inside the button text field were removed and an inline attribute onclick was added as standard. This also mede styling the text of the button much easier. 
 
 ### Unfixed Bugs
 

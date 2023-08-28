@@ -37,12 +37,18 @@ var rows = 6;
 var columns = 7;
 var currColumns = [];
 
+// Function to start the game
+
 function startGame() {
+
+    // Clear game.html page of name form
 
     console.log("Game Started");
     let removeElement = document.getElementsByTagName("form");
     console.log(removeElement);
     removeElement[0].remove();
+
+
 
     let body = document.getElementById("mainBody");
     let newSubHeading = document.createElement("h2");
@@ -91,15 +97,23 @@ function setPiece() {
         return;
     }
 
-    board[r][c] = currPlayer; //update JS board
+    board[r][c] = currPlayer; //update game board
     let tile = document.getElementById(r.toString() + "-" + c.toString());
     if (currPlayer == playerRed) {
         tile.classList.add("red-piece");
+        let kipper = document.createElement("img");
+        tile.appendChild(kipper);
+        kipper.setAttribute("src", "/assets/images/icons/kipper-red-1.png");
+        kipper.setAttribute("width", "100%");
         currPlayer = playerYellow;
         winner.innerText = `${playerTwo.value} it's your turn`;
     }
     else {
         tile.classList.add("yellow-piece");
+        let porgie = document.createElement("img");
+        tile.appendChild(porgie);
+        porgie.setAttribute("src", "/assets/images/icons/porgie-yellow-1.png");
+        porgie.setAttribute("width", "100%");
         currPlayer = playerRed;
         winner.innerText = `${playerOne.value} it's your turn`;
     }
