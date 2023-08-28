@@ -146,6 +146,18 @@ body {
     margin-top: 25vh;
 }
 
+#name-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#name-form>div {
+    width: 30%;
+    margin-top: 25vh;
+}
+
 #board {
     height: 540px;
     width: 630px;
