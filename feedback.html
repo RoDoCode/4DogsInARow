@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connect 4 - Canine Edition</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <script src="index.js" ; charset="utf-8"></script>
+        <link rel="icon" type="image/x-icon" href="../assets/images/icons/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@600&display=swap" rel="stylesheet">
+    </head>
+
+    <body id="mainBody">
+        <header class="header">
+            <div>
+                <a href="index.html">
+                    <img class="logo" src="../assets/images/icons/android-chrome-192x192.png"
+                        alt="Connect 4 - Canine Edition Logo" />
+                </a>
+            </div>
+            <div id="title">
+                <h1>Connect 4</h1><img id="text-dog" src="../assets/images/icons/favicon.ico" alt="tiny dog icon" />
+                <h1>Canine Edition</h1>
+            </div>
+            <div class="button-div">
+                <button class="button" role="button" onclick="window.location.href='feedback.html';">Feedback</button>
+            </div>
+        </header>
+
+        <br>
+
+        <form class="form-text" method="POST" action="https://formdump.codeinstitute.net/">
+            <div class="subscribe_div">
+                <h1>Subscribe to our Newsletter</h1>
+                <p>Fill in your details and you can expect monthly updates with the latest articles released on Enigma and early previews of photographic galleries recently unearthed and compiled.</p>
+                <hr>
+                <br>
+            
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Your Email" name="email" id="email" required>
+            
+                <label for="fname"><b>First name:</b></label>
+                <input type="text" placeholder="Enter First Name" name="Fname" id="fname" required>
+            
+                <label for="lname"><b>Last name:</b></label>
+                <input type="text" placeholder="Enter Last Name" name="Lname" id="lname" required>
+            
+                <p>By subscribing you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy Policy</a>.</p>
+            
+                <div class="buttons">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Subscribe</button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
