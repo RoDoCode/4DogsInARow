@@ -51,11 +51,13 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     color: white;
-
+    font-size: 30px;
+    line-height: 40px;
 }
 
 #text-dog {
     height: 6vh;
+    margin-top: 3vh;
 }
 
 .header>div>h1 {
@@ -151,12 +153,12 @@ body {
     margin-top: 25vh;
 }
 
-#kipperlanding {
-    width: 90%;
+#kipperLanding {
+    width: 25vw;
 }
 
-#porgielanding {
-    width: 90%;
+#porgieLanding {
+    width: 25vw;
 }
 
 #kippergamepage{

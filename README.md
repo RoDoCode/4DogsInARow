@@ -128,9 +128,13 @@ The footer also include site navigation links so users don't have to scroll to t
 
 ![Footer Image](assets/images/screenshots/footer.JPG)
 
-### Features Left to Implement
+### Features to Implement in the Future
 
-All 
+- Variable board size: this would allow players to change the shape of the board, increasing difficulty.
+- Very simple AI for single player: this could have been done using a random number generator or mimicking the players moves to put a piece down next to theirs, so the AI plays defensively always trying to head off the players tactics. Maybe a tighter version of the win conditions looking for pairs of two and three to anticipate attempted wins, then the ai places its piece ahead to cut the player off.
+- Highscores Page which tracks past players highest scores.
+- Individual turn tracking for fastest win competing.
+
 
 ## Testing
 
@@ -175,13 +179,15 @@ The site has been tested via dev tools on the full range of screens available th
 
 Test users have been used and observed navigating the site unaided, and asked to find their way to specific pages without prior knowledge of how to get there. All test users successfully navigated to their targets after less than a minute and in fewer than 4 clicks.
 
-### Bugs list:
+### Bugs list
+
 - After incorporating the form values as active elements in the JS code the win condition for playrr two became 5 aligned matching divs in stead of 4. The game is connect 4, not connect 5, so this simply would do. This didnt effect player one. Player two also became the first to lay a tile unexpectedly. The bug was fixed by reverting to standard RED/YELLOW names to represent player one and two in code and passing their names value from the form separately into another variable which is used for in-game text.
-- hyperlinks in the buttons were only working when text was clicked, not the button itself. The links inside the button text field were removed and an inline attribute onclick was added as standard. This also mede styling the text of the button much easier. 
+- Hyperlinks in the buttons were only working when text was clicked, not the button itself. The links inside the button text field were removed and an inline attribute onclick was added as standard. This also mede styling the text of the button much easier.
+- Score tracker wfist showed undefined, and after a fix to this it showed only 0. Score Updating function had to be written to clear the page and update with a new score after a win condition is found.
 
 ### Unfixed Bugs
 
-- 
+- None.
 
 ## Deployment
 
