@@ -30,7 +30,7 @@ var playerYellowScore = 0;              // Player Two score variable
 
 function startGame() {                  // FUNCTION - START THE GAME
     console.log("Game Started");                                            // Checker for function called
-    let removeElement = document.getElementsByTagName("form");              // Assign form to variable                                               // 
+    let removeElement = document.getElementsByTagName("form");              // Assign form to variable
     removeElement[0].remove();                                              // Remove form from page
     let body = document.getElementById("mainBody");                         // Assign page body to variable
     let newSubHeading = document.createElement("h2");                       // Create new h2
@@ -47,14 +47,16 @@ function startGame() {                  // FUNCTION - START THE GAME
     newButton.setAttribute('onclick', "resetBoard()");                      // Set onclick attribute of new button
     newButton.style.marginTop = "2vh";                                      // Set new button margin top
     centerDiv.appendChild(newButton);                                       // Append new button to center-div
-    let rightDiv = document.getElementById("right-div");                    // Assign variable for tight-div
+    let rightDiv = document.getElementById("right-div");                    // Assign variable for right-div
     let leftDiv = document.getElementById("left-div");                      // Assign variable for left-div
     let scoreCardOne = document.createElement("h1");                        // Create heading for player 1
     let scoreCardTwo = document.createElement("h1");                        // Create heading for player 2
+    scoreCardOne.classList.add("score");                                    // Add class to score
+    scoreCardTwo.classList.add("score");                                    // Add class to score
     scoreCardOne.innerHTML = `Player One Score: ${playerRedScore}`;         // Add score text for score tracker
-    scoreCardTwo.innerHTML = `Player Two Score: ${playerRedScore}`;         // Add score text for score tracker
-    leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left div
-    rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right div
+    scoreCardTwo.innerHTML = `Player Two Score: ${playerYellowScore}`;      // Add score text for score tracker
+    leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left-div
+    rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right-div
 
     // CONSTRUCT THE BOARD
     board = [];                                                             // Assign the board an empty array
@@ -167,12 +169,30 @@ function setWinner(r, c) {                                          // Function 
         winner.innerText = `${playerOne.value} & Kipper Win!`;      // Displays WINNER MESSAGE
         ++playerRedScore;                                           // Add one to the red score
         console.log("Player One Score = " + playerRedScore);        // Console log player new score
+        updateScore();
     } else {                                                        // Else yellow wins
         winner.innerText = `${playerTwo.value} & Porgie Win!`;      // Displays WINNER MESSAGE
         ++playerYellowScore;                                        // Add one to the yellow score
         console.log("Player Two Score = " + playerYellowScore);     // Console log player new score
+        updateScore();
     }
     gameOver = true;                                                // GAME OVER or paused until new round
+}
+
+function updateScore() {
+    let removeScore = document.getElementsByClassName("score");             // Assign form to variable
+    removeScore[1].remove();                                                // Remove form from page    
+    removeScore[0].remove();                                                // Remove form from page
+    let rightDiv = document.getElementById("right-div");                    // Assign variable for right-div
+    let leftDiv = document.getElementById("left-div");                      // Assign variable for left-div
+    let scoreCardOne = document.createElement("h1");                        // Create heading for player 1
+    let scoreCardTwo = document.createElement("h1");                        // Create heading for player 2
+    scoreCardOne.classList.add("score");                                    // Add class to score
+    scoreCardTwo.classList.add("score");                                    // Add class to score
+    scoreCardOne.innerHTML = `Player One Score: ${playerRedScore}`;         // Add score text for score tracker
+    scoreCardTwo.innerHTML = `Player Two Score: ${playerYellowScore}`;      // Add score text for score tracker
+    leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left-div
+    rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right-div
 }
 
 // Function Removes The Existing Board
