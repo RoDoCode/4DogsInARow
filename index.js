@@ -36,6 +36,8 @@ var board;
 var rows = 6;
 var columns = 7;
 var currColumns = [];
+var playerRedScore = 0;
+var playerYellowScore = 0;
 
 // Function to start the game
 
@@ -178,11 +180,16 @@ function setWinner(r, c) {
     let winner = document.getElementById("winner");
     if (board[r][c] == playerRed) {
         winner.innerText = `${playerOne.value} & Kipper Win!`;
+        ++playerRedScore;
+        console.log("Player One Score = " + playerRedScore);
     } else {
         winner.innerText = `${playerTwo.value} & Porgie Win!`;
+        ++playerYellowScore;
+        console.log("Player Two Score = " + playerYellowScore);
     }
 
     gameOver = true;
+    
 }
 
 // end of game mechanics
