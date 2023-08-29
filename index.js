@@ -45,13 +45,16 @@ function startGame() {                  // FUNCTION - START THE GAME
     newButton.classList.add("button");                                      // Add button class to new button
     newButton.innerHTML = "New Round";                                      // Add text to new button
     newButton.setAttribute('onclick', "resetBoard()");                      // Set onclick attribute of new button
-    newButton.style.marginTop = "2vh";
+    newButton.style.marginTop = "2vh";                                      // Set new button margin top
     centerDiv.appendChild(newButton);                                       // Append new button to center-div
-
-    let rightDiv = document.getElementById("right-div");
-    let leftDiv = document.getElementById("left-div");
-    let scoreCardOne = document.createElement("h1");
-    let scoreCardTwo = document.createElement("h1");
+    let rightDiv = document.getElementById("right-div");                    // Assign variable for tight-div
+    let leftDiv = document.getElementById("left-div");                      // Assign variable for left-div
+    let scoreCardOne = document.createElement("h1");                        // Create heading for player 1
+    let scoreCardTwo = document.createElement("h1");                        // Create heading for player 2
+    scoreCardOne.innerHTML = `Player One Score: ${playerRedScore}`;         // Add score text for score tracker
+    scoreCardTwo.innerHTML = `Player Two Score: ${playerRedScore}`;         // Add score text for score tracker
+    leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left div
+    rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right div
 
     // CONSTRUCT THE BOARD
     board = [];                                                             // Assign the board an empty array
