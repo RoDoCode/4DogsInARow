@@ -5,8 +5,8 @@ function submitAndStart() {                // Submit Form & Start Game
     startGame();                            // Clear content and construct board
 }
 
-let playerOne;                              // Create player variable
-let playerTwo;                              // Create player variable
+let playerOne = "Player One";                              // Create player variable
+let playerTwo = "Player Two";                              // Create player variable
 
 function handleSubmit(event) {                                      // Collect data from Name Form
     event.preventDefault();                                         // Prevent the default submit action
@@ -45,6 +45,7 @@ function startGame() {                  // FUNCTION - START THE GAME
     newButton.classList.add("button");                                      // Add button class to new button
     newButton.innerHTML = "New Round";                                      // Add text to new button
     newButton.setAttribute('onclick', "resetBoard()");                      // Set onclick attribute of new button
+    newButton.style.marginTop = "2vh";
     centerDiv.appendChild(newButton);                                       // Append new button to center-div
 
     // CONSTRUCT THE BOARD
@@ -63,6 +64,7 @@ function startGame() {                  // FUNCTION - START THE GAME
         board.push(row);                                                    // Push each row to the board
     }
     winner.innerText = `${playerOne.value} it's your turn`;                 // Start the turn-label text
+    
 }
 
 // BEGINNING OF GAME MECHANICS
