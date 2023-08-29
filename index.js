@@ -61,6 +61,13 @@ function startGame() {
 
     centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);
 
+    let newButton = document.createElement("button");
+    newButton.id = "reset";
+    newButton.classList.add("button");
+    newButton.innerHTML = "New Round";
+    newButton.setAttribute('onclick', "resetBoard()");
+    centerDiv.appendChild(newButton);
+
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
 
@@ -88,7 +95,7 @@ function setPiece() {
         return;
     }
 
-    //get coords of that tile clicked
+    //get coords of the tile which has been clicked
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
@@ -120,15 +127,13 @@ function setPiece() {
         currPlayer = playerRed;
         winner.innerText = `${playerOne.value} it's your turn`;
     }
-
-    r -= 1; //update the row height for that column
+    r -= 1; //update the row height for that column to continue simulating gravity and stacking
     currColumns[c] = r; //update the array
-
-    checkWinner();
+    checkWinner(); //search for win condition
 }
 
 function checkWinner() {
-    // horizontal
+    // HORIZONTAL - loop checks for sets of 4 matching tiles with a sliding frame across the whole board
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
@@ -140,7 +145,7 @@ function checkWinner() {
         }
     }
 
-    // vertical
+    // VERTICAL - loop checks for sets of 4 matching tiles with a sliding frame across the whole board
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows - 3; r++) {
             if (board[r][c] != ' ') {
@@ -152,7 +157,7 @@ function checkWinner() {
         }
     }
 
-    // anti diagonal
+    // ANTIDIAGONAL - loop checks for sets of 4 matching tiles within the range of available spaces for this to occur in the anti-diagonal direction
     for (let r = 0; r < rows - 3; r++) {
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
@@ -164,7 +169,7 @@ function checkWinner() {
         }
     }
 
-    // diagonal
+    // DIAGONAL - loop checks for sets of 4 matching tiles within the range of available spaces for this to occur in the diagonal direction
     for (let r = 3; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
@@ -177,6 +182,7 @@ function checkWinner() {
     }
 }
 
+// Function Assigns The Winner and Declares It - Pausing any further play until a new round is set
 function setWinner(r, c) {
     let winner = document.getElementById("winner");
     if (board[r][c] == playerRed) {
@@ -188,23 +194,46 @@ function setWinner(r, c) {
         ++playerYellowScore;
         console.log("Player Two Score = " + playerYellowScore);
     }
-
     gameOver = true;
-    if (gameOver === true) {
-        resetButton();
-    }
 }
 
-function resetButton() {
-    console.log("resetButton");
+// Function Removes The Existing Board
+function resetBoard() {
+    let deleteWinner = document.getElementById("winner");
+    let deleteBoard = document.getElementById("board");
+    deleteWinner.remove();
+    deleteBoard.remove();
+    console.log("Board Cleared");
+    startNewGame();
+    gameOver = false;
+}
 
+// Function Constructs A Fresh Board
+function startNewGame() {
+    console.log("New Game Started");
+    let body = document.getElementById("mainBody");
+    let newSubHeading = document.createElement("h2");
+    newSubHeading.id = "winner";
+    let newDiv = document.createElement("div");
+    newDiv.id = "board";
     let centerDiv = document.getElementById("center-div");
-    let newButton = document.createElement("button");
-    newButton.id = "reset";
-    newButton.classList.add("button");
-    newButton.innerHTML = "Play Again?"
-    centerDiv.appendChild(newButton);
-
+    centerDiv.appendChild(newDiv);
+    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);
+    board = [];
+    currColumns = [5, 5, 5, 5, 5, 5, 5];
+    for (let r = 0; r < rows; r++) {
+        let row = [];
+        for (let c = 0; c < columns; c++) {
+            row.push(' ');
+            let tile = document.createElement("div");
+            tile.id = r.toString() + "-" + c.toString();
+            tile.classList.add("tile");
+            tile.addEventListener("click", setPiece);
+            document.getElementById("board").append(tile);
+        }
+        board.push(row);
+    }
+    winner.innerText = `${playerOne.value} it's your turn`;
 }
 
 // end of game mechanics
