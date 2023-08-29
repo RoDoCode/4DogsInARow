@@ -151,6 +151,22 @@ body {
     margin-top: 25vh;
 }
 
+#kipperlanding {
+    width: 90%;
+}
+
+#porgielanding {
+    width: 90%;
+}
+
+#kippergamepage{
+    width: 30%;
+}
+
+#porgiegamepage{
+    width: 30%;
+}
+
 #name-form {
     display: flex;
     flex-direction: row;

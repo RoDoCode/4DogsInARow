@@ -48,6 +48,11 @@ function startGame() {                  // FUNCTION - START THE GAME
     newButton.style.marginTop = "2vh";
     centerDiv.appendChild(newButton);                                       // Append new button to center-div
 
+    let rightDiv = document.getElementById("right-div");
+    let leftDiv = document.getElementById("left-div");
+    let scoreCardOne = document.createElement("h1");
+    let scoreCardTwo = document.createElement("h1");
+
     // CONSTRUCT THE BOARD
     board = [];                                                             // Assign the board an empty array
     currColumns = [5, 5, 5, 5, 5, 5, 5];
@@ -64,7 +69,7 @@ function startGame() {                  // FUNCTION - START THE GAME
         board.push(row);                                                    // Push each row to the board
     }
     winner.innerText = `${playerOne.value} it's your turn`;                 // Start the turn-label text
-    
+
 }
 
 // BEGINNING OF GAME MECHANICS
