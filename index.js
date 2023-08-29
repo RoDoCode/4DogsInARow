@@ -210,16 +210,16 @@ function resetBoard() {
 
 // Function Constructs A Fresh Board
 function startNewGame() {
-    console.log("New Game Started");
-    let body = document.getElementById("mainBody");
-    let newSubHeading = document.createElement("h2");
-    newSubHeading.id = "winner";
-    let newDiv = document.createElement("div");
-    newDiv.id = "board";
-    let centerDiv = document.getElementById("center-div");
-    centerDiv.appendChild(newDiv);
-    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);
-    board = [];
+    console.log("New Game Started");                    //for checking
+    let body = document.getElementById("mainBody");     //assign variable to mainBody id
+    let newSubHeading = document.createElement("h2");   //assign variable to newly created heading
+    newSubHeading.id = "winner";                        //assign id to new heading
+    let newDiv = document.createElement("div");         //assign variable to newly created div
+    newDiv.id = "board";                                //assign id to new div
+    let centerDiv = document.getElementById("center-div");           //assign variable to center-div id
+    centerDiv.insertBefore(newDiv, centerDiv.children[0]);           //add new div to center-div before all other children in center-div
+    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);    //add new subheading before all other children in center-div
+    board = [];                                                      //assign an empty array to board empty variable
     currColumns = [5, 5, 5, 5, 5, 5, 5];
     for (let r = 0; r < rows; r++) {
         let row = [];
