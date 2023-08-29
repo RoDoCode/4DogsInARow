@@ -53,12 +53,13 @@ function startGame() {
     let body = document.getElementById("mainBody");
     let newSubHeading = document.createElement("h2");
     newSubHeading.id = "winner";
-    body.appendChild(newSubHeading);
-
+    
     let newDiv = document.createElement("div");
     newDiv.id = "board";
     let centerDiv = document.getElementById("center-div");
     centerDiv.appendChild(newDiv);
+
+    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);
 
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
@@ -189,7 +190,21 @@ function setWinner(r, c) {
     }
 
     gameOver = true;
-    
+    if (gameOver === true) {
+        resetButton();
+    }
+}
+
+function resetButton() {
+    console.log("resetButton");
+
+    let centerDiv = document.getElementById("center-div");
+    let newButton = document.createElement("button");
+    newButton.id = "reset";
+    newButton.classList.add("button");
+    newButton.innerHTML = "Play Again?"
+    centerDiv.appendChild(newButton);
+
 }
 
 // end of game mechanics
