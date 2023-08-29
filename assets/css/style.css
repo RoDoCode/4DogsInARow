@@ -46,7 +46,9 @@ body {
 #title {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    color: white;
+
 }
 
 #text-dog {
@@ -183,7 +185,7 @@ body {
     margin: 5px;
 
     /* Circle */
-    background-color: white;
+    background-color: #2dade9;
     border-radius: 50%;
     border: 5px solid rgb(56, 40, 4);
 }

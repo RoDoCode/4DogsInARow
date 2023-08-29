@@ -1,66 +1,45 @@
-console.log("javascript loaded successfully");
+console.log("javascript loaded successfully");                  // Log javascript linked
 
-// This gets the form values and attaches them to Player Name variables and then clears the page and sets up the board
-function submitAndStart () {
-    handleSubmit(event);
-    startGame();
+function submitAndStart () {                // Submit Form & Start Game
+    handleSubmit(event);                    // Collect data from Name Form
+    startGame();                            // Clear content and construct board
 }
 
-let playerOne;
-let playerTwo;
+let playerOne;                              // Create player variable
+let playerTwo;                              // Create player variable
 
-function handleSubmit(event) {
-    // Prevent the default submit action
-    event.preventDefault();
-
-    // Get the two input elements
-    playerOne = document.getElementById('player1Name');
-    playerTwo = document.getElementById('player2Name');
-
-    // Log their values to the console for checking
-    console.log('Player One:', playerOne.value);
-    console.log('Player Two:', playerTwo.value);
+function handleSubmit(event) {                                      // Collect data from Name Form
+    event.preventDefault();                                         // Prevent the default submit action
+    playerOne = document.getElementById('player1Name');             // Collect value of player name
+    playerTwo = document.getElementById('player2Name');             // Collect value of player name
+    console.log('Player One:', playerOne.value);                    // Log player name to console
+    console.log('Player Two:', playerTwo.value);                    // Log player name to console
 }
 
-// Constructs the board
+// GLOBAL VARIABLES
+var playerRed = "R";                    // Player One also Player Red
+var playerYellow = "Y";                 // Player Two also Player Yellow
+var currPlayer = playerRed;             // Variable concerned with turn taking
+var gameOver = false;                   // End game variable - also pause play
+var board;                              // Container for the board
+var rows = 6;                           // Number of rows on board
+var columns = 7;                        // Number of columns on board
+var currColumns = [];                   // Active current columns
+var playerRedScore = 0;                 // Player One score variable
+var playerYellowScore = 0;              // Player Two score variable
 
-// GLOBAL VARIABLES used in the game mechanics
-
-var playerRed = "R";
-var playerYellow = "Y";
-var currPlayer = playerRed;
-
-var gameOver = false;
-var board;
-
-var rows = 6;
-var columns = 7;
-var currColumns = [];
-var playerRedScore = 0;
-var playerYellowScore = 0;
-
-// Function to start the game
-
-function startGame() {
-
-    // Clear game.html page of name form
-
-    console.log("Game Started");
-    let removeElement = document.getElementsByTagName("form");
-    console.log(removeElement);
-    removeElement[0].remove();
-
-    let body = document.getElementById("mainBody");
-    let newSubHeading = document.createElement("h2");
-    newSubHeading.id = "winner";
-    
-    let newDiv = document.createElement("div");
-    newDiv.id = "board";
-    let centerDiv = document.getElementById("center-div");
-    centerDiv.appendChild(newDiv);
-
-    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);
-
+function startGame() {                  // FUNCTION - START THE GAME
+    console.log("Game Started");                                                // Checker for function called
+    let removeElement = document.getElementsByTagName("form");                  // Assign form to variable                                               // 
+    removeElement[0].remove();                                                  // Remove form from page
+    let body = document.getElementById("mainBody");                             // Assign page body to variable
+    let newSubHeading = document.createElement("h2");                           // Create new h2
+    newSubHeading.id = "winner";                                                // New h2 ID
+    let newDiv = document.createElement("div");                                 // Create new div
+    newDiv.id = "board";                                                        // New div ID
+    let centerDiv = document.getElementById("center-div");                      // Assign center-div to variable
+    centerDiv.appendChild(newDiv);                                              // Append new div to center-div
+    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);               //
     let newButton = document.createElement("button");
     newButton.id = "reset";
     newButton.classList.add("button");
@@ -68,7 +47,7 @@ function startGame() {
     newButton.setAttribute('onclick', "resetBoard()");
     centerDiv.appendChild(newButton);
 
-    board = [];
+    board = [];                                                        // CONSTRUCT THE BOARD
     currColumns = [5, 5, 5, 5, 5, 5, 5];
 
     for (let r = 0; r < rows; r++) {
