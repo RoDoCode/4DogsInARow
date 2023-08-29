@@ -66,8 +66,8 @@ function startGame() {                  // FUNCTION - START THE GAME
 }
 
 // BEGINNING OF GAME MECHANICS
-function setPiece() {
-    if (gameOver) {
+function setPiece() {                           // Setting a piece on the board
+    if (gameOver) {                             // If game is over return and do not action the rest of setPiece function
         return;
     }
     let coords = this.id.split("-");            // Get coords of the tile which has been clicked
@@ -77,35 +77,35 @@ function setPiece() {
     if (r < 0) {                                // board[r][c] != ' '
         return;
     }
-
-    board[r][c] = currPlayer; //update game board
-    let tile = document.getElementById(r.toString() + "-" + c.toString());
-    if (currPlayer == playerRed) {
-        tile.classList.add("red-piece");
-        let kipper = document.createElement("img");
-        tile.appendChild(kipper);
-        kipper.setAttribute("src", "/assets/images/icons/kipper-red-1.png");
-        kipper.setAttribute("width", "100%");
-        currPlayer = playerYellow;
-        winner.innerText = `${playerTwo.value} it's your turn`;
+    board[r][c] = currPlayer;                                                   // Update game board
+    let tile = document.getElementById(r.toString() + "-" + c.toString());      // Assign tile variable selected by ID coordinated
+    if (currPlayer == playerRed) {                                              // IF statement for RED turn
+        tile.classList.add("red-piece");                                        // Add red piece to selected tile class list
+        let kipper = document.createElement("img");                             // Create new img element
+        tile.appendChild(kipper);                                               // Append image token
+        kipper.setAttribute("src", "/assets/images/icons/kipper-red-1.png");    // Set image token source attribute
+        kipper.setAttribute("width", "100%");                                   // Set image token width attribute
+        currPlayer = playerYellow;                                              // Change to next player
+        winner.innerText = `${playerTwo.value} it's your turn`;                 // Change turn message text
     }
-    else {
-        tile.classList.add("yellow-piece");
-        let porgie = document.createElement("img");
-        tile.appendChild(porgie);
-        porgie.setAttribute("src", "/assets/images/icons/porgie-yellow-1.png");
-        porgie.setAttribute("width", "100%");
-        currPlayer = playerRed;
-        winner.innerText = `${playerOne.value} it's your turn`;
+    else {                                                                      // ELSE statement for YELLOW turn
+        tile.classList.add("yellow-piece");                                     // Add yellow piece to selected tile class list
+        let porgie = document.createElement("img");                             // Create new img element
+        tile.appendChild(porgie);                                               // Append image token
+        porgie.setAttribute("src", "/assets/images/icons/porgie-yellow-1.png"); // Set image token source attribute
+        porgie.setAttribute("width", "100%");                                   // Set image token width attribute
+        currPlayer = playerRed;                                                 // Change to next player
+        winner.innerText = `${playerOne.value} it's your turn`;                 // Change turn message text
     }
-    r -= 1; //update the row height for that column to continue simulating gravity and stacking
-    currColumns[c] = r; //update the array
-    checkWinner(); //search for win condition
+    r -= 1;                     //update the row height for that column to simulate gravity and stacking
+    currColumns[c] = r;         //update the array
+    checkWinner();              //search for win condition
 }
 
+// CHECK FOR WIN
 function checkWinner() {
     // HORIZONTAL - loop checks for sets of 4 matching tiles with a sliding frame across the whole board
-    for (let r = 0; r < rows; r++) {
+    for (let r = 0; r < rows; r++) {                                    
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r][c + 1] && board[r][c + 1] == board[r][c + 2] && board[r][c + 2] == board[r][c + 3]) {
@@ -115,7 +115,6 @@ function checkWinner() {
             }
         }
     }
-
     // VERTICAL - loop checks for sets of 4 matching tiles with a sliding frame across the whole board
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows - 3; r++) {
@@ -127,7 +126,6 @@ function checkWinner() {
             }
         }
     }
-
     // ANTIDIAGONAL - loop checks for sets of 4 matching tiles within the range of available spaces for this to occur in the anti-diagonal direction
     for (let r = 0; r < rows - 3; r++) {
         for (let c = 0; c < columns - 3; c++) {
@@ -139,7 +137,6 @@ function checkWinner() {
             }
         }
     }
-
     // DIAGONAL - loop checks for sets of 4 matching tiles within the range of available spaces for this to occur in the diagonal direction
     for (let r = 3; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
@@ -154,29 +151,29 @@ function checkWinner() {
 }
 
 // Function Assigns The Winner and Declares It - Pausing any further play until a new round is set
-function setWinner(r, c) {
-    let winner = document.getElementById("winner");
-    if (board[r][c] == playerRed) {
-        winner.innerText = `${playerOne.value} & Kipper Win!`;
-        ++playerRedScore;
-        console.log("Player One Score = " + playerRedScore);
-    } else {
-        winner.innerText = `${playerTwo.value} & Porgie Win!`;
-        ++playerYellowScore;
-        console.log("Player Two Score = " + playerYellowScore);
+function setWinner(r, c) {                                          // Function set by win condition met
+    let winner = document.getElementById("winner");                 // Assign winner to variable
+    if (board[r][c] == playerRed) {                                 // IF red wins
+        winner.innerText = `${playerOne.value} & Kipper Win!`;      // Displays WINNER MESSAGE
+        ++playerRedScore;                                           // Add one to the red score
+        console.log("Player One Score = " + playerRedScore);        // Console log player new score
+    } else {                                                        // Else yellow wins
+        winner.innerText = `${playerTwo.value} & Porgie Win!`;      // Displays WINNER MESSAGE
+        ++playerYellowScore;                                        // Add one to the yellow score
+        console.log("Player Two Score = " + playerYellowScore);     // Console log player new score
     }
-    gameOver = true;
+    gameOver = true;                                                // GAME OVER or paused until new round
 }
 
 // Function Removes The Existing Board
-function resetBoard() {
-    let deleteWinner = document.getElementById("winner");
-    let deleteBoard = document.getElementById("board");
-    deleteWinner.remove();
-    deleteBoard.remove();
-    console.log("Board Cleared");
-    startNewGame();
-    gameOver = false;
+function resetBoard() {                                         // 
+    let deleteWinner = document.getElementById("winner");       //
+    let deleteBoard = document.getElementById("board");         //
+    deleteWinner.remove();                                      //
+    deleteBoard.remove();                                       //
+    console.log("Board Cleared");                               //
+    startNewGame();                                             //
+    gameOver = false;                                           // NEW ROUND DECLARED
 }
 
 // Function Constructs A Fresh Board
@@ -192,19 +189,19 @@ function startNewGame() {
     centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);    //add new subheading before all other children in center-div
     board = [];                                                      //assign an empty array to board empty variable
     currColumns = [5, 5, 5, 5, 5, 5, 5];
-    for (let r = 0; r < rows; r++) {
-        let row = [];
-        for (let c = 0; c < columns; c++) {
-            row.push(' ');
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
-            tile.classList.add("tile");
-            tile.addEventListener("click", setPiece);
-            document.getElementById("board").append(tile);
+    for (let r = 0; r < rows; r++) {                                 // Loop for each row
+        let row = [];                                                // Assign an empty array to row
+        for (let c = 0; c < columns; c++) {                          // Loop for each column
+            row.push(' ');                                           // Push an empty string into each row for each column
+            let tile = document.createElement("div");                // Create a new div called Tile
+            tile.id = r.toString() + "-" + c.toString();             // Assign the tile ID to show the coordinate of itself, row and column
+            tile.classList.add("tile");                              // Add tile class to each tile
+            tile.addEventListener("click", setPiece);                // Event listener for click to set a piece
+            document.getElementById("board").append(tile);           // Append each tile to the board
         }
-        board.push(row);
+        board.push(row);                                             // Push each row to the board
     }
-    winner.innerText = `${playerOne.value} it's your turn`;
+    winner.innerText = `${playerOne.value} it's your turn`;          // Start the turn-label text
 }
 
-// end of game mechanics
+// END OF GAME MECHANICS
