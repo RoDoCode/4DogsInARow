@@ -48,8 +48,6 @@ function startGame() {
     console.log(removeElement);
     removeElement[0].remove();
 
-
-
     let body = document.getElementById("mainBody");
     let newSubHeading = document.createElement("h2");
     newSubHeading.id = "winner";
@@ -57,7 +55,14 @@ function startGame() {
 
     let newDiv = document.createElement("div");
     newDiv.id = "board";
-    body.appendChild(newDiv);
+    let centerDiv = document.getElementById("center-div")
+    centerDiv.appendChild(newDiv);
+
+    var divWidth = document.getElementById("center-div").offsetWidth;
+    var tileWidthPre = (divWidth / 7)
+    var tileWidth = tileWidthPre.toFixed(2);
+    var tileMarginPre = (tileWidth / 14);
+    var tileMargin = tileMarginPre.toFixed(2);
 
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
@@ -70,6 +75,7 @@ function startGame() {
             let tile = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
             tile.classList.add("tile");
+
             tile.addEventListener("click", setPiece);
             document.getElementById("board").append(tile);
         }
