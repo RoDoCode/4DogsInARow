@@ -55,14 +55,8 @@ function startGame() {
 
     let newDiv = document.createElement("div");
     newDiv.id = "board";
-    let centerDiv = document.getElementById("center-div")
+    let centerDiv = document.getElementById("center-div");
     centerDiv.appendChild(newDiv);
-
-    var divWidth = document.getElementById("center-div").offsetWidth;
-    var tileWidthPre = (divWidth / 7)
-    var tileWidth = tileWidthPre.toFixed(2);
-    var tileMarginPre = (tileWidth / 14);
-    var tileMargin = tileMarginPre.toFixed(2);
 
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
