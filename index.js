@@ -1,6 +1,6 @@
 console.log("javascript loaded successfully");                  // Log javascript linked
 
-function submitAndStart () {                // Submit Form & Start Game
+function submitAndStart() {                // Submit Form & Start Game
     handleSubmit(event);                    // Collect data from Name Form
     startGame();                            // Clear content and construct board
 }
@@ -29,60 +29,52 @@ var playerRedScore = 0;                 // Player One score variable
 var playerYellowScore = 0;              // Player Two score variable
 
 function startGame() {                  // FUNCTION - START THE GAME
-    console.log("Game Started");                                                // Checker for function called
-    let removeElement = document.getElementsByTagName("form");                  // Assign form to variable                                               // 
-    removeElement[0].remove();                                                  // Remove form from page
-    let body = document.getElementById("mainBody");                             // Assign page body to variable
-    let newSubHeading = document.createElement("h2");                           // Create new h2
-    newSubHeading.id = "winner";                                                // New h2 ID
-    let newDiv = document.createElement("div");                                 // Create new div
-    newDiv.id = "board";                                                        // New div ID
-    let centerDiv = document.getElementById("center-div");                      // Assign center-div to variable
-    centerDiv.appendChild(newDiv);                                              // Append new div to center-div
-    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);               //
-    let newButton = document.createElement("button");
-    newButton.id = "reset";
-    newButton.classList.add("button");
-    newButton.innerHTML = "New Round";
-    newButton.setAttribute('onclick', "resetBoard()");
-    centerDiv.appendChild(newButton);
+    console.log("Game Started");                                            // Checker for function called
+    let removeElement = document.getElementsByTagName("form");              // Assign form to variable                                               // 
+    removeElement[0].remove();                                              // Remove form from page
+    let body = document.getElementById("mainBody");                         // Assign page body to variable
+    let newSubHeading = document.createElement("h2");                       // Create new h2
+    newSubHeading.id = "winner";                                            // New h2 ID
+    let newDiv = document.createElement("div");                             // Create new div
+    newDiv.id = "board";                                                    // New div ID
+    let centerDiv = document.getElementById("center-div");                  // Assign center-div to variable
+    centerDiv.appendChild(newDiv);                                          // Append new div to center-div
+    centerDiv.insertBefore(newSubHeading, centerDiv.children[0]);           // Add new h2 before other elements in center-div
+    let newButton = document.createElement("button");                       // Create new button
+    newButton.id = "reset";                                                 // New button ID
+    newButton.classList.add("button");                                      // Add button class to new button
+    newButton.innerHTML = "New Round";                                      // Add text to new button
+    newButton.setAttribute('onclick', "resetBoard()");                      // Set onclick attribute of new button
+    centerDiv.appendChild(newButton);                                       // Append new button to center-div
 
-    board = [];                                                        // CONSTRUCT THE BOARD
+    // CONSTRUCT THE BOARD
+    board = [];                                                             // Assign the board an empty array
     currColumns = [5, 5, 5, 5, 5, 5, 5];
-
-    for (let r = 0; r < rows; r++) {
-        let row = [];
-        for (let c = 0; c < columns; c++) {
-            row.push(' ');
-
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
-            tile.classList.add("tile");
-
-            tile.addEventListener("click", setPiece);
-            document.getElementById("board").append(tile);
+    for (let r = 0; r < rows; r++) {                                        // Loop for each row
+        let row = [];                                                       // Assign an empty array to row
+        for (let c = 0; c < columns; c++) {                                 // Loop for each column
+            row.push(' ');                                                  // Push an empty string into each row for each column
+            let tile = document.createElement("div");                       // Create a new div called Tile
+            tile.id = r.toString() + "-" + c.toString();                    // Assign the tile ID to show the coordinate of itself, row and column
+            tile.classList.add("tile");                                     // Add tile class to each tile
+            tile.addEventListener("click", setPiece);                       // Event listener for click to set a piece
+            document.getElementById("board").append(tile);                  // Append each tile to the board
         }
-        board.push(row);
+        board.push(row);                                                    // Push each row to the board
     }
-    winner.innerText = `${playerOne.value} it's your turn`;
+    winner.innerText = `${playerOne.value} it's your turn`;                 // Start the turn-label text
 }
 
 // BEGINNING OF GAME MECHANICS
-
 function setPiece() {
     if (gameOver) {
         return;
     }
-
-    //get coords of the tile which has been clicked
-    let coords = this.id.split("-");
-    let r = parseInt(coords[0]);
-    let c = parseInt(coords[1]);
-
-    // figure out which row the current column should be on
-    r = currColumns[c];
-
-    if (r < 0) { // board[r][c] != ' '
+    let coords = this.id.split("-");            // Get coords of the tile which has been clicked
+    let r = parseInt(coords[0]);                // Get row coordinate
+    let c = parseInt(coords[1]);                // Get column coordinate
+    r = currColumns[c];                         // Figure out which row the current column should be on
+    if (r < 0) {                                // board[r][c] != ' '
         return;
     }
 
