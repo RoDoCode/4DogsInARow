@@ -49,12 +49,12 @@ function startGame() {                  // FUNCTION - START THE GAME
     centerDiv.appendChild(newButton);                                       // Append new button to center-div
     let rightDiv = document.getElementById("right-div");                    // Assign variable for right-div
     let leftDiv = document.getElementById("left-div");                      // Assign variable for left-div
-    let scoreCardOne = document.createElement("h1");                        // Create heading for player 1
-    let scoreCardTwo = document.createElement("h1");                        // Create heading for player 2
+    let scoreCardOne = document.createElement("h2");                        // Create heading for player 1
+    let scoreCardTwo = document.createElement("h2");                        // Create heading for player 2
     scoreCardOne.classList.add("score");                                    // Add class to score
     scoreCardTwo.classList.add("score");                                    // Add class to score
-    scoreCardOne.innerHTML = `Player One Score: ${playerRedScore}`;         // Add score text for score tracker
-    scoreCardTwo.innerHTML = `Player Two Score: ${playerYellowScore}`;      // Add score text for score tracker
+    scoreCardOne.innerHTML = `Player One <br> Score: ${playerRedScore}`;         // Add score text for score tracker
+    scoreCardTwo.innerHTML = `Player Two <br> Score: ${playerYellowScore}`;      // Add score text for score tracker
     leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left-div
     rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right-div
 
@@ -185,12 +185,12 @@ function updateScore() {
     removeScore[0].remove();                                                // Remove form from page
     let rightDiv = document.getElementById("right-div");                    // Assign variable for right-div
     let leftDiv = document.getElementById("left-div");                      // Assign variable for left-div
-    let scoreCardOne = document.createElement("h1");                        // Create heading for player 1
-    let scoreCardTwo = document.createElement("h1");                        // Create heading for player 2
+    let scoreCardOne = document.createElement("h2");                        // Create heading for player 1
+    let scoreCardTwo = document.createElement("h2");                        // Create heading for player 2
     scoreCardOne.classList.add("score");                                    // Add class to score
     scoreCardTwo.classList.add("score");                                    // Add class to score
-    scoreCardOne.innerHTML = `Player One Score: ${playerRedScore}`;         // Add score text for score tracker
-    scoreCardTwo.innerHTML = `Player Two Score: ${playerYellowScore}`;      // Add score text for score tracker
+    scoreCardOne.innerHTML = `Player One <br> Score: ${playerRedScore}`;         // Add score text for score tracker
+    scoreCardTwo.innerHTML = `Player Two <br> Score: ${playerYellowScore}`;      // Add score text for score tracker
     leftDiv.insertBefore(scoreCardOne, leftDiv.children[0]);                // Insert at start of left-div
     rightDiv.insertBefore(scoreCardTwo, rightDiv.children[0]);              // Insert at start of right-div
 }
