@@ -241,6 +241,10 @@ label {
     background-color: yellow;
 }
 
+#feedback-form {
+    color: white;
+}
+
 /* Desktops, large screens - 1025px — 1200px - Responsive Settings*/
 @media screen and (max-width: 1200px) {
     #board {
