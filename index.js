@@ -117,7 +117,7 @@ function setPiece() {                           // Setting a piece on the board
 // CHECK FOR WIN
 function checkWinner() {
     // HORIZONTAL - loop checks for sets of 4 matching tiles with a sliding frame across the whole board
-    for (let r = 0; r < rows; r++) {                                    
+    for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r][c + 1] && board[r][c + 1] == board[r][c + 2] && board[r][c + 2] == board[r][c + 3]) {

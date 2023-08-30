@@ -1,16 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@600&display=swap');
 
 html {
-    /* background: url("../../assets/images/pics/pexels-scott-webb-1048039.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     background-color: rgb(64, 130, 109);
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-family: 'Gluten', cursive, sans-serif;
 }
 
 body {
-    font-family: 'Gluten', cursive, sans-serif;
+
     text-align: center;
     width: 100%;
     height: 100%;
@@ -30,17 +27,23 @@ body {
 }
 
 /* Header broken into horizontal thirds */
-.header>div {
+.header.div {
     width: calc(100% / 3);
     height: 10vh;
     text-align: center;
     line-height: 2.5vh;
 }
 
+.header.div.h1 {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+    font-weight: bold;
+    color: white;
+}
+
 /* Header logo - Top Left */
 .logo {
     display: flex;
-    height: 100%;
+    width: 10vw;
     line-height: 2.5vh;
     justify-content: flex-start;
 }
@@ -51,7 +54,6 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     color: white;
-    font-size: 30px;
     line-height: 40px;
 }
 
@@ -60,16 +62,8 @@ body {
     margin-top: 3vh;
 }
 
-.header>div>h1 {
-    font-family: 'Gluten', cursive, sans-serif;
-    font-size: 1.8em;
-    font-weight: bold;
-
-    color: black
-}
-
-/* Header Feedback BUTTON - Top Right */
 /* Credit for button styling goes to Duolingo from this site https: //getcssscan.com/css-buttons-examples */
+/* Header Feedback BUTTON - Top Right */
 
 .button-div {
     display: flex;
@@ -78,7 +72,6 @@ body {
 
 .button {
     text-decoration: none;
-    appearance: button;
     background-color: #d65e18;
     border: solid transparent;
     border-radius: 16px;
@@ -88,7 +81,7 @@ body {
     cursor: pointer;
     display: inline-block;
     font-family: 'Gluten', cursive, sans-serif;
-    font-size: 15px;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     font-weight: 700;
     letter-spacing: .8px;
     line-height: 20px;
@@ -102,7 +95,6 @@ body {
     transform: translateZ(0);
     transition: filter .2s;
     user-select: none;
-    -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
     width: 10vw;
@@ -124,14 +116,12 @@ body {
     z-index: -1;
 }
 
-.button:main,
 .button:focus {
     user-select: auto;
 }
 
 .button:hover:not(:disabled) {
     filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
 }
 
 .button:disabled {
@@ -139,7 +129,6 @@ body {
 }
 
 /* END OF CREDITED BUTTON STYLING */
-
 
 .landing-page {
     display: flex;
@@ -154,18 +143,18 @@ body {
 }
 
 #kipperLanding {
-    width: 25vw;
+    width: 20vw;
 }
 
 #porgieLanding {
-    width: 25vw;
+    width: 20vw;
 }
 
-#kippergamepage{
+#kippergamepage {
     width: 30%;
 }
 
-#porgiegamepage{
+#porgiegamepage {
     width: 30%;
 }
 
