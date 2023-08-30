@@ -95,7 +95,7 @@ function setPiece() {                           // Setting a piece on the board
         tile.classList.add("red-piece");                                        // Add red piece to selected tile class list
         let kipper = document.createElement("img");                             // Create new img element
         tile.appendChild(kipper);                                               // Append image token
-        kipper.setAttribute("src", "/assets/images/icons/kipper-red-1.png");    // Set image token source attribute
+        kipper.setAttribute("src", "assets/images/icons/kipper-red-1.png");    // Set image token source attribute
         kipper.setAttribute("width", "100%");                                   // Set image token width attribute
         currPlayer = playerYellow;                                              // Change to next player
         winner.innerText = `${playerTwo.value} it's your turn`;                 // Change turn message text
@@ -104,7 +104,7 @@ function setPiece() {                           // Setting a piece on the board
         tile.classList.add("yellow-piece");                                     // Add yellow piece to selected tile class list
         let porgie = document.createElement("img");                             // Create new img element
         tile.appendChild(porgie);                                               // Append image token
-        porgie.setAttribute("src", "/assets/images/icons/porgie-yellow-1.png"); // Set image token source attribute
+        porgie.setAttribute("src", "assets/images/icons/porgie-yellow-1.png"); // Set image token source attribute
         porgie.setAttribute("width", "100%");                                   // Set image token width attribute
         currPlayer = playerRed;                                                 // Change to next player
         winner.innerText = `${playerOne.value} it's your turn`;                 // Change turn message text
