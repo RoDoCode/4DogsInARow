@@ -155,6 +155,10 @@ label {
     cursor: auto;
 }
 
+#reset {
+    min-width: 150px;
+}
+
 /* END OF CREDITED BUTTON STYLING */
 
 .landing-page {
@@ -193,13 +197,9 @@ label {
     width: 100%;
     height: 80vh;
     padding-top: 20vh;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     align-content: center;
-}
-
-#name-form>div {
-    width: 30%;
 }
 
 #center-div {
@@ -257,8 +257,9 @@ label {
 /* Small screens, laptops - 769px — 1024px - Responsive Settings*/
 @media screen and (max-width: 1024px) { 
     #name-form {
-        flex-direction: column;
-        justify-content: flex-start;
+        
+        align-items: center;
+        align-content: center;
         height: 60vh;
     }
 
@@ -321,13 +322,13 @@ label {
     }
 
     #board {
+        width: 310px;
         height: 270px;
-        width: 300px;
     }
 
     .tile {
-        height: 35px;
-        width: 35px;
+        height: 29px;
+        width: 29px;
         margin: 2.5px;
     }
 }
