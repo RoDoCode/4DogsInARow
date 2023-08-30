@@ -122,7 +122,6 @@ label {
     white-space: nowrap;
     width: 10vw;
     min-width: 95px;
-    text-overflow: hidden;
     height: 50px;
 }
 
