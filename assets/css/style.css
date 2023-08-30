@@ -198,7 +198,6 @@ label {
     flex-direction: row;
     width: 100%;
     height: 80vh;
-    padding-top: 20vh;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -249,6 +248,7 @@ label {
         height: 540px;
         width: 630px;
     }
+
     .tile {
         height: 70px;
         width: 70px;
@@ -257,9 +257,9 @@ label {
 }
 
 /* Small screens, laptops - 769px — 1024px - Responsive Settings*/
-@media screen and (max-width: 1024px) { 
+@media screen and (max-width: 1024px) {
     #name-form {
-        
+
         align-items: center;
         align-content: center;
         height: 60vh;
@@ -289,20 +289,20 @@ label {
         align-items: center;
         width: 100%;
     }
-    
+
     #board {
         height: 390px;
         width: 455px;
     }
-    
+
     .tile {
         height: 50px;
         width: 50px;
         margin: 2.5px;
     }
-    
+
     #title {
-            flex-direction: column;
+        flex-direction: column;
     }
 
     h1 {
@@ -314,32 +314,34 @@ label {
 }
 
 /* iPads, Tablets - 481px — 768px - Responsive Settings*/
-@media screen and (max-width: 768px) {
-}
-
-/* Mobile devices - 320px — 480px - Responsive Settings*/
-@media screen and (max-width: 480px) {
-    #feedback {
-            min-width: 95px;
-    }
-
-    #board {
-        width: 310px;
-        height: 270px;
-    }
-
-    .tile {
-        height: 29px;
-        width: 29px;
-        margin: 2.5px;
-    }
-
-    #right-div{
+@media screen and (max-width: 600px) {
+    #right-div {
         visibility: hidden;
     }
 
     #left-div {
         visibility: hidden;
     }
-        
+}
+
+/* Mobile devices - 320px — 480px - Responsive Settings*/
+@media screen and (max-width: 480px) {
+    #feedback {
+        min-width: 95px;
+    }
+
+    #board {
+        width: 284px;
+        height: 245px;
+    }
+
+    .tile {
+        height: 27.5px;
+        width: 27.5px;
+        margin: 1.5px;
+    }
+
+    header>#title>h1 {
+        font-size: 15px;
+    }
 }
