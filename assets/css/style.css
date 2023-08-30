@@ -319,4 +319,15 @@ label {
     #feedback {
             min-width: 95px;
     }
+
+    #board {
+        height: 270px;
+        width: 300px;
+    }
+
+    .tile {
+        height: 35px;
+        width: 35px;
+        margin: 2.5px;
+    }
 }
