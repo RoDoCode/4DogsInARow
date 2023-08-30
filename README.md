@@ -6,7 +6,7 @@ The target audience is a single individual, Freya. Freya is 5, nearly 6, and lov
 
 'Connect 4 - Canine Edition' includes a standard 6 x 7 grid version, and a 9 x 11 more challenging mode. The game is a 2 player turn based race to connect 4 adjacent dog tokens of the same type in a row. The game allows players to enter their names before starting play. There is a turn counter which counts the number of turns before the game is completed and there is a player score counter which tracks the number of wins for each player. 
 
-The live link can be found here - [Connect 4 - Canine Edition](https://rodocode.github.io/enigma/)
+The live link can be found here - [Connect 4 - Canine Edition](https://rodocode.github.io/Connect4-CanineEdition/)
 
 ![Connect 4 - Canine Edition Am I Responsive Image](assets/images/screenshots/am_i_responsive.PNG)
 
